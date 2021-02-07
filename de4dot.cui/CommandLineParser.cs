@@ -231,6 +231,10 @@ namespace de4dot.cui {
 				Logger.Instance.MaxLoggerEvent = LoggerEvent.VeryVerbose;
 				Logger.Instance.CanIgnoreMessages = false;
 			}));
+			miscOptions.Add(new NoArgOption("fpdb", null, "Force PDB file generation for output", () =>
+			{
+				Logger.Instance.ForcePDBGeneration = true;
+			}));
 			miscOptions.Add(new NoArgOption("h", "help", "Show this help message", () => {
 				Usage();
 				Exit(0);

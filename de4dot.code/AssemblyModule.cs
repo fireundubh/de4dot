@@ -18,6 +18,7 @@
 */
 
 using dnlib.DotNet;
+using dnlib.DotNet.Pdb;
 using dnlib.DotNet.Writer;
 
 namespace de4dot.code {
@@ -59,6 +60,11 @@ namespace de4dot.code {
 				writerOptions.WriterEvent += (s, e) => writerListener?.OnWriterEvent(e.Writer, e.Event);
 				writerOptions.MetadataOptions.Flags |= mdFlags;
 				writerOptions.Logger = Logger.Instance;
+				if(Logger.Instance.ForcePDBGeneration)
+				{
+					writerOptions.WritePdb = true;
+					module.CreatePdbState(PdbFileKind.WindowsPDB);
+				}
 				module.Write(newFilename, writerOptions);
 			}
 			else {
@@ -68,6 +74,11 @@ namespace de4dot.code {
 				writerOptions.Logger = Logger.Instance;
 				writerOptions.KeepExtraPEData = true;
 				writerOptions.KeepWin32Resources = true;
+				if (Logger.Instance.ForcePDBGeneration)
+				{
+					writerOptions.WritePdb = true;
+					module.CreatePdbState(PdbFileKind.WindowsPDB);
+				}
 				module.NativeWrite(newFilename, writerOptions);
 			}
 		}
