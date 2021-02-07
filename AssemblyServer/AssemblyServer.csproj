@@ -5,6 +5,8 @@
   <PropertyGroup>
     <PlatformTarget>x86</PlatformTarget>
     <OutputType>Exe</OutputType>
+    <TargetFramework>net45</TargetFramework>
+    <TargetFrameworks />
   </PropertyGroup>
 
   <ItemGroup>

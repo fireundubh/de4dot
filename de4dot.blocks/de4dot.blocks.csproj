@@ -1,5 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup>
+    <TargetFramework>net45</TargetFramework>
+    <TargetFrameworks />
+  </PropertyGroup>
+
   <Import Project="..\De4DotCommon.props" />
 
   <ItemGroup>
